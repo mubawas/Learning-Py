@@ -1,0 +1,27 @@
+
+from selenium import webdriver
+import time
+from selenium.webdriver.common.keys import Keys
+#PATH = PROGRAM TO COMUNICATE WITH BROWSER
+# driver = what browser to use
+
+PATH = "C:\Program Files (x86)\chromedriver.exe"
+driver = webdriver.Chrome(PATH)     
+driver.get("https://www.wikipedia.org/")
+#title = what it says on the tab on top
+print(driver.title)
+
+
+search = driver.find_element_by_name("search")
+search.send_keys("test")
+search.send_keys(Keys.RETURN)
+
+time.sleep(5)
+
+link = driver.find_element_by_link_text("Test (assessment)")
+link.click()
+
+time.sleep(5)
+
+driver.back() 
+driver.forward()
